@@ -1,0 +1,12 @@
+{
+  "name": "native-client",
+  "displayName": "native-client",
+  "expo": {
+    "name": "native-client",
+    "slug": "native-client",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
