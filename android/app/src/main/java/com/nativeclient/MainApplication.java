@@ -13,6 +13,8 @@ import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.nativeclient.generated.BasePackageList;
 
+import com.imagepicker.ImagePickerPackage;
+
 import org.unimodules.adapters.react.ReactAdapterPackage;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
 import org.unimodules.adapters.react.ReactModuleRegistryProvider;
@@ -45,6 +47,13 @@ public class MainApplication extends Application implements ReactApplication {
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
       return packages;
     }
+    // @Override
+    // protected List<ReactPackage> getPackages() {
+    //     return Arrays.<ReactPackage>asList(
+    //         new MainReactPackage(),
+    //         new ImagePickerPackage(), // <-- add this line  
+    //     );
+    // }
 
     @Override
     protected String getJSMainModuleName() {
