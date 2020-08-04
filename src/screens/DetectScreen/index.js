@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, ImageBackground } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from 'react-native-paper';
@@ -30,11 +30,11 @@ const HomeScreen = ({ navigation }) => {
         ImagePicker.showImagePicker(options, async (response) => {
             const { uri, type, fileName } = response
             let file = { uri, type, name: fileName }
-            console.log('File = ', file);
+            // console.log('File = ', file);
             if (response.didCancel) {
-                console.log('User cancelled image picker');
+                // console.log('User cancelled image picker');
             } else if (response.error) {
-                console.log('ImagePicker Error: ', response.error);
+                // console.log('ImagePicker Error: ', response.error);
             } else {
                 //HANDLE THE FILE
                 setFile(file)
@@ -50,13 +50,14 @@ const HomeScreen = ({ navigation }) => {
             const resp = await detectApi.image(body)
             setOutput(resp.response[0])
             setArr(resp.response[0].responses)
-            console.log(resp.response[0]);
+            // console.log(resp.response[0]);
             setIsLoading(false)
         } catch (error) {
             setIsLoading(false)
-            alert("Something went wrong")
+            alert(error)
         }
     }
+
     const format = (str) => {
         const arr = str.split("_")
         return arr.join(" ")
@@ -71,6 +72,9 @@ const HomeScreen = ({ navigation }) => {
             )
         } else return <Text style={styles.warnText}>Sorry we cannot detect which breed it is</Text>
     }
+    useEffect(() => {
+        // console.log("File: ", file, "\nOutput: ", output);
+    }, [file, output])
     return (
         <SafeAreaView style={styles.root}>
 
@@ -126,7 +130,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.grey800,
         // borderRadius: 2,
         paddingVertical: hScale(5),
-        paddingHorizontal: wScale(5),
+        paddingHorizontal: wScale(10),
         flex: 1,
         flexDirection: "row",
         justifyContent: "space-between"

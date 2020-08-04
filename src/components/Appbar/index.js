@@ -11,7 +11,7 @@ const CustomAppBar = ({ navigate }) => {
                     icon="menu"
                     onPress={() => console.log('Hello')}
                 />
-                <Appbar.Content title="Detections" subtitle="Subtitle" />
+                < Appbar.Content title="Detections" subtitle="Subtitle" />
             </Appbar>
         </>
     )
