@@ -20,6 +20,12 @@
 
 ```
 
+### `running`
+```bash
+npm run android-dev
+yarn android-dev
+```
+
 ### `npm install`
 To install all dependencies in package.json
 ### `npm run android-dev`
